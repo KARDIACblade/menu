@@ -1,0 +1,240 @@
+/* ==========================================================================
+   RESET & VARIABLES
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg-dark: #0a0c10;
+    --bg-card: #121620;
+    --primary-red: #E50914;
+    --accent-red: #FF1E27;
+    --text-main: #F5F5F7;
+    --text-muted: #A1A1AA;
+    --border-color: rgba(229, 9, 20, 0.3);
+    --font-heading: 'Orbitron', sans-serif;
+    --font-body: 'Rajdhani', sans-serif;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    font-family: var(--font-body);
+    font-size: 18px;
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ==========================================================================
+   HEADER / PERFIL
+   ========================================================================== */
+.hero-header {
+    background: linear-gradient(180deg, rgba(229, 9, 20, 0.15) 0%, rgba(10, 12, 16, 1) 100%);
+    border-bottom: 2px solid var(--border-color);
+    padding: 3rem 1.5rem 2rem;
+}
+
+.profile-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.avatar-wrapper {
+    position: relative;
+}
+
+.avatar-img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--primary-red);
+    box-shadow: 0 0 20px rgba(229, 9, 20, 0.5);
+    transition: transform 0.3s ease;
+}
+
+.avatar-img:hover {
+    transform: scale(1.05) rotate(2deg);
+}
+
+.profile-info {
+    flex: 1;
+}
+
+.badge {
+    display: inline-block;
+    background-color: var(--primary-red);
+    color: #fff;
+    font-family: var(--font-heading);
+    font-size: 0.75rem;
+    padding: 0.25rem 0.75rem;
+    border-radius: 4px;
+    letter-spacing: 1px;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+}
+
+.glitch-title {
+    font-family: var(--font-heading);
+    font-size: 2.2rem;
+    color: #fff;
+    text-transform: uppercase;
+    text-shadow: 0 0 10px rgba(229, 9, 20, 0.7);
+    margin-bottom: 0.25rem;
+}
+
+.author span {
+    color: var(--accent-red);
+    font-weight: 700;
+}
+
+.course-info {
+    color: var(--text-muted);
+    font-size: 1rem;
+}
+
+/* ==========================================================================
+   SECCIÓN DE PROYECTOS (GRID & TARJETAS)
+   ========================================================================== */
+.main-content {
+    flex: 1;
+    max-width: 1000px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 3rem 1.5rem;
+}
+
+.section-title {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+    color: #fff;
+}
+
+.section-title span {
+    color: var(--primary-red);
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+/* Tarjeta Gamer */
+.project-card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 1.8rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.project-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--accent-red), transparent);
+    transition: left 0.5s ease;
+}
+
+/* Efecto Hover en la tarjeta */
+.project-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--accent-red);
+    box-shadow: 0 10px 25px rgba(229, 9, 20, 0.25);
+}
+
+.project-card:hover::before {
+    left: 100%;
+}
+
+.card-tag {
+    font-family: var(--font-heading);
+    font-size: 0.8rem;
+    color: var(--accent-red);
+    text-transform: uppercase;
+}
+
+.card-body h3 {
+    font-family: var(--font-heading);
+    font-size: 1.4rem;
+    margin: 0.5rem 0 0.8rem;
+    color: #fff;
+}
+
+.card-body p {
+    color: var(--text-muted);
+    font-size: 1.05rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Botón Gamer */
+.btn-game {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    background: transparent;
+    color: #fff;
+    font-family: var(--font-heading);
+    font-size: 0.95rem;
+    font-weight: 700;
+    text-decoration: none;
+    padding: 0.8rem 1.5rem;
+    border: 2px solid var(--primary-red);
+    border-radius: 6px;
+    position: relative;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Efecto Hover en el botón */
+.btn-game:hover {
+    background-color: var(--primary-red);
+    box-shadow: 0 0 15px rgba(229, 9, 20, 0.6);
+    color: #fff;
+}
+
+/* ==========================================================================
+   FOOTER
+   ========================================================================== */
+.main-footer {
+    text-align: center;
+    padding: 2rem 1.5rem;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    color: var(--text-muted);
+    font-size: 0.95rem;
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN
+   ========================================================================== */
+@media (max-width: 600px) {
+    .profile-container {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .glitch-title {
+        font-size: 1.7rem;
+    }
+}
